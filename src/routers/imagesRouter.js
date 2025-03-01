@@ -11,15 +11,15 @@ imageRouter.get('/proxy', async (req, res, next) => {
         const { searchQuery, page = 1, limit = 8 } = req.query;
 
         if (!searchQuery) {
-            return res.status(400).json({ error: 'seachQuery param is required' });
+            return res.status(400).json({ error: 'searchQuery param is required' });
         }
-        const url = `${BASE_URL}?q=${encodeURIComponent(searchQuery)}&page=${page}&per_page=${limit}&key=${KEY}`;
-        const response = await axios.get(url);
-        res.json(response.data);
-    } catch (error) {
-        next(error)
-    }
-})
 
+        const response = await axios.get(`${BASE_URL}?key=${KEY}&q=${encodeURIComponent(searchQuery)}&page=${page}&per_page=${limit}`)
+
+        res.status(200).json(response.data);
+    } catch (error) {
+        next(error);
+    }
+});
 
 module.exports = imageRouter;
