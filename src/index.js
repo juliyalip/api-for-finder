@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json())
 
 app.use(cors({
-      origin: 'https://juliyalip.github.io/image-finder-in',
+      origin: 'https://juliyalip.github.io',
     credentials: true,
   }))
 
