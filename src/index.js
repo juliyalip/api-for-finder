@@ -26,6 +26,6 @@ app.use(cors({
       res.status(status).json({ message })
     })
   
-  app.listen(PORT, () => {
+  app.listen(4400, () => {
     console.log(`🚀 Proxy server running`);
   });
