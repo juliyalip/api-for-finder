@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json())
 
 app.use(cors({
-    origin: 'https://juliyalip.github.io/image-finder-in/',
+      origin: 'https://juliyalip.github.io/image-finder-in/index.js',
     credentials: true,
   }))
 
@@ -26,6 +26,6 @@ app.use(cors({
       res.status(status).json({ message })
     })
   
-  app.listen(4400, () => {
+  app.listen(PORT, () => {
     console.log(`🚀 Proxy server running`);
   });
